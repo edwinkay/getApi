@@ -1,11 +1,19 @@
 import axios from "axios"
 
-const $root = document.getElementById('root')
+//DOM objects
+const $root = document.querySelector('#root')
 
-const URL = 'https://rickandmortyapi.com/api/character'
-let data = axios.get(URL).then(res => {
+//api methods
+const getCharacters = async () => {
+    const URL = 'https://rickandmortyapi.com/api/character'
+    const res = await axios.get(URL)
+
+    return res.data
+}
+
+getCharacters().then(res => {
+    //here we can access to API REST data ✅
     console.log(res)
-    data = res.data
+    // by the moment you should write you code below here 👇
+    // follow with the ice cream app
 })
-
-console.log(data)
